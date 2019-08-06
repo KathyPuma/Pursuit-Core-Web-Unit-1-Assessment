@@ -6,6 +6,18 @@ let assert = require('assert')
 // If something that is not a number is passed in, return false.
 
 
+
+function isOdd(num){
+ if  (num % 2 !== 0){
+     return true
+
+  }else{
+    return false
+  }
+  return isOdd
+}
+
+//I am having trouble with NaN. Typeof NaN is a number so its hard to restrict it from the other numbers.
 // Uncomment out the next line to test your solution
 // runQ1Tests()
 
@@ -13,28 +25,64 @@ let assert = require('assert')
 // Question Two:
 
 // Write a function called numberOfDigits that returns how many digits are in a given number
+//
+function numberOfDigits(digit){
+  let digitString = digit.toString()
+  return digitString.length
+}
 
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
 // Write a function called disemvowel that removes all of the vowels from a string.
 // Treat y as a consonant, not a vowel
 
+function disemvowel(word) {
+let vowel = 'a'
+let vowel2 = 'e'
+let vowel3= 'i'
+let vowel4 = 'o'
+let vowel5 = 'u'
+let vowel6 = 'A'
+let vowel7 = 'E'
+let vowel8 = 'I'
+let vowel9 = 'O'
+let vowel10= 'U'
+//
+//
+let string = ''
+  for(let i = 0; i < word.length; i++){
+    if (!word[i].includes(vowel) && !word[i].includes(vowel2) && !word[i].includes(vowel3) && !word[i].includes(vowel4) && !word[i].includes(vowel5) && !word[i].includes(vowel6)&& !word[i].includes(vowel7) && !word[i].includes(vowel8) && !word[i].includes(vowel9) && !word[i].includes(vowel10)){
+      string += word[i]
+    }
+  }
+  return string
+}
+
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called secondSmallest that returns the second smallest number in an array
 
+
+function secondSmallest(arr){
+  let newArr = arr.sort((a,b) => (a-b))
+  return arr[1]
+}
+
+
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
 // Write a function called getLocations that takes in an array of objects that look like the array below,
 // and returns an array of the strings corresponding to the value of the location property
 // The output should be in the same order as the input
+
+
 
 // Sample input:
 // [{location: "Algeria", population: 41}, {location: "Belize", population: 0.4}, {location: "China", population: 1386}, {location: "Denmark", population: 6}]
@@ -42,8 +90,18 @@ let assert = require('assert')
 // Sample output:
 // ["Algeria", "Belize", "China", "Denmark"]
 
+
+function getLocations(arr){
+  let locationArr=[]
+  for (let i = 0; i < arr.length; i++){
+    locationArr.push(arr[i].location)
+  }
+  return locationArr
+}
+
+
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 
 // Question Six:
@@ -52,7 +110,18 @@ let assert = require('assert')
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+
+
+function onlyOddStrings(arr){
+  let result = arr.filter((currentElem) =>{
+    if(currentElem.length % 2 !== 0){
+      return currentElem
+    }
+  })
+  return result
+}
+
+runQ6Tests()
 
 
 // Question Seven:
@@ -65,6 +134,38 @@ let assert = require('assert')
 // Example
 // let myDay = Day(80, "sunny")
 // myDay.getDescription() // returns "It is 80 degrees and sunny"
+
+// class Day{
+//   constructor(temperature, weather){
+//     this.temperature = temperature;
+//     this.weather = weather;
+//   }
+//   getDescription(){
+//   return  `It is ${this.temperature} and ${this.weather}`
+// }
+//
+// getAllDayDescriptions(){
+// let newArr= []
+//   let result= getDescription.filter((currentElem) =>{
+//     if (typeof getDescription === 'string')
+//     newArr.push(currentElem[i])
+//   })
+// return result
+
+// let newArr= []
+// let result = temperture.filter((currentElem) => {
+//   if(currentelem === this.temperture)
+//   newArr.push(currentElem[i])
+//   return `It is ${this.temperature} and ${this.weather}`
+// })
+// return result
+
+
+// }
+//
+// }
+// I'm not sure how to incorporate a higher-ordered function to getAllDayDescriptions.
+//I keep getting getAllDayDescriptions is not defined. I ended up confusing myself.
 
 //b.
 // Make a function called getAllDayDescriptions that takes in an array of Day objects and returns an array of their descriptions.  Use a higher-ordered function (e.g map, filter, reduce, every, sort) in your implementation.
